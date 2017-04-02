@@ -1,0 +1,31 @@
+{
+  "name": "payment-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fornitio/payment-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fornitio/payment-back/issues"
+  },
+  "homepage": "https://github.com/fornitio/payment-back#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-jwt": "^5.1.0",
+    "method-override": "^2.3.8",
+    "mongoose": "^4.9.2",
+    "mongoose-unique-validator": "^1.0.5",
+    "morgan": "^1.8.1",
+    "nconf": "^0.8.4",
+    "serve-favicon": "^2.4.2",
+    "winston": "^2.3.1"
+  }
+}
