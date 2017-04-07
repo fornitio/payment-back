@@ -1,31 +1,33 @@
-var mongoose = require('mongoose');
-var uniqueValidator = require('mongoose-unique-validator');
-var config      = require('./config');
-var log = require('./log')(module);
+const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
+const config = require('./config');
+const log = require('./log')(module);
+
+mongoose.Promise = global.Promise;
 
 mongoose.connect(config.get('mongoose:uri'));
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', function (err) {
     log.error('connection error:', err.message);
 });
 db.once('open', function callback () {
-    log.info("Connected to DB!");
+    log.info("Connected to DB! ", config.get('mongoose:uri'));
 });
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var {UserSchema} = require('./Schemas/User');
+const {UserSchema} = require('./Schemas/User');
 console.log(UserSchema);
-var User = new Schema(UserSchema);
+const User = new Schema(UserSchema);
 
 // validation
 User.path('firstname').validate(function (v) {
-    return v.length > 5 && v.length < 70;
+    return v.length > 1 && v.length < 70;
 });
 
 User.plugin(uniqueValidator);
 
-var UserModel = mongoose.model('User', User);
+const UserModel = mongoose.model('User', User);
 
 module.exports.UserModel = UserModel;

@@ -1,0 +1,11 @@
+{
+    "port" : 1337,
+    "mongoose" : {
+        "uri" : "mongodb://localhost/testing"
+    },
+    "secret" : "secret",
+    "loginObj" : {"email" : "e1",
+	    "password" : "p1",
+	    "firstname" : "Al",
+	    "lastname" : "F"}
+}

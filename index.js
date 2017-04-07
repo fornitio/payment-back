@@ -45,3 +45,4 @@ app.use(function(err, req, res, next) {
 app.listen(config.get('port'), function(){
     console.log('Express server listening on port ' + config.get('port'));
 });
+module.exports = app;
