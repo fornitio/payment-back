@@ -17,10 +17,7 @@ var UserSchema = {
     modified: { 
     	type: Date, 
     	default: Date.now 
-    },
-    account: {
-        amount: Number
-    }
+    }  
 };
 
 module.exports.UserSchema = UserSchema;
