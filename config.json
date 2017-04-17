@@ -3,5 +3,5 @@
     "mongoose": {
         "uri": "mongodb://localhost/development"
     },
-    "secret": "secret"
+    "secret": "secret1"
 }

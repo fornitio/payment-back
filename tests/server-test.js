@@ -40,8 +40,8 @@ describe('Users', function() {
 	  chai.request(server)
 	    .get('/api/users')
 	    .end(function(err, res){
-	      	res.body.length.should.equal(1);
-	      	if(res&&res.body&&res.body[0]) {id = res.body[0]._id}
+	      	res.body.users.length.should.equal(1);
+	      	if(res&&res.body&&res.body.users&&res.body.users[0]) {id = res.body.users[0].userId}
 	      	done();
 	    });
 	});
@@ -67,7 +67,7 @@ describe('Users', function() {
 	  chai.request(server)
 	    .get('/api/users')
 	    .end(function(err, res){
-	      	res.body.length.should.equal(0);
+	      	res.body.users.length.should.equal(0);
 	      	done();
 	    });
 	});

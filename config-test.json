@@ -3,13 +3,11 @@
     "mongoose" : {
         "uri" : "mongodb://localhost/testing"
     },
-    "secret" : "secret",
+    "secret" : "secret-test",
     "loginObj" : {"email" : "e1",
 	    "password" : "p1",
 	    "firstname" : "Al",
 	    "lastname" : "F",
-		"account" : {
-			"amount" : 0
-		}
+		"account" : "{\"amount\" : 100}"
 	}
 }
