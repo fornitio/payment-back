@@ -17,6 +17,9 @@ var UserSchema = {
     modified: { 
     	type: Date, 
     	default: Date.now 
+    },
+    account: {
+        amount: Number
     }
 };
 

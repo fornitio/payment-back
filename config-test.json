@@ -7,5 +7,9 @@
     "loginObj" : {"email" : "e1",
 	    "password" : "p1",
 	    "firstname" : "Al",
-	    "lastname" : "F"}
+	    "lastname" : "F",
+		"account" : {
+			"amount" : 0
+		}
+	}
 }
