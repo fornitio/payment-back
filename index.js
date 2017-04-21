@@ -9,6 +9,7 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 
+//keys for https
 const hskey = fs.readFileSync('m-key.pem');
 const hscert = fs.readFileSync('m-cert.pem')
 const options = {
@@ -18,16 +19,18 @@ const options = {
 
 const app = express();
 
+//logs & config
 const log = require('./log')(module);
 const config = require('./config');
 
+//middleware
 app.use(cors());
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); // отдаем стандартную фавиконку, можем здесь же свою задать
-app.use(morgan('tiny')); // выводим все запросы со статусами в консоль
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); 
+app.use(morgan('tiny')); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method'));
-app.use(express.static(path.join(__dirname, "public"))); // запуск статического файлового сервера, который смотрит на папку public/ (в нашем случае отдает index.html)
+app.use(express.static(path.join(__dirname, "public"))); 
 
 //routing
 app.use('/api', require('./routes/user'));
@@ -50,6 +53,7 @@ app.use(function(err, req, res, next) {
     log.error('Internal error(%d): %s',res.statusCode, err.message);
 });
 
+//createServer options contains https keys
 app.listen = (...args) => {
     var server = https.createServer(options, app).listen(args[0]);
     return server.listen.apply(server, args);

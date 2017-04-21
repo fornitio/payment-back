@@ -1,13 +1,12 @@
 {
     "port" : 1337,
-    "mongoose" : {
-        "uri" : "mongodb://localhost/testing"
+    "mySql" : {
+        "uri" : "mysql://root:root@localhost:3307/dbtest"
     },
     "secret" : "secret-test",
-    "loginObj" : {"email" : "e1",
+    "loginObj" : {"email" : "e1@com.com",
 	    "password" : "p1",
 	    "firstname" : "Al",
-	    "lastname" : "F",
-		"account" : "{\"amount\" : 100}"
+	    "lastname" : "F"
 	}
 }

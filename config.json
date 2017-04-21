@@ -1,7 +1,7 @@
 {
     "port" : 1337,
-    "mongoose": {
-        "uri": "mongodb://localhost/development"
+    "mySql" : {
+        "uri" : "mysql://root:root@localhost:3307/dbtest"
     },
     "secret": "secret1"
 }

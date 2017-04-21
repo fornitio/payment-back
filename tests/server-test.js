@@ -6,7 +6,7 @@ const chaiHttp = require('chai-http');
 const server = require('../index.js');
 const should = chai.should();
 
-const User = require('../bd').UserModel;
+const User = require('../db').User;
 let token;
 let id;
 
@@ -14,7 +14,6 @@ chai.use(chaiHttp);
 
 
 describe('Users', function() {
-	User.collection.drop();
 	it('should register user /api/register POST', function(done) {
 	  chai.request(server)
 	    .post('/api/register')
@@ -41,7 +40,7 @@ describe('Users', function() {
 	    .get('/api/users')
 	    .end(function(err, res){
 	      	res.body.users.length.should.equal(1);
-	      	if(res&&res.body&&res.body.users&&res.body.users[0]) {id = res.body.users[0].userId}
+	      	if(res&&res.body&&res.body.users&&res.body.users[0]) {id = res.body.users[0].userid}
 	      	done();
 	    });
 	});
@@ -67,7 +66,7 @@ describe('Users', function() {
 	  chai.request(server)
 	    .get('/api/users')
 	    .end(function(err, res){
-	      	res.body.users.length.should.equal(0);
+	      	res.should.have.status(404);
 	      	done();
 	    });
 	});
